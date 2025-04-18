@@ -1,0 +1,326 @@
+{
+	"info": {
+		"_postman_id": "051f034e-d392-4a7c-8d05-37eff1f8aee6",
+		"name": "App Saraha",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "33817260"
+	},
+	"item": [
+		{
+			"name": "user",
+			"item": [
+				{
+					"name": "change password",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"oldPassword\":\"adfadfAF3\",\r\n    \"password\":\"54sdfadA\",\r\n    \"confirmPassword\":\"54sdfadA\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{start}}/user/changepassword",
+							"host": [
+								"{{start}}"
+							],
+							"path": [
+								"user",
+								"changepassword"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "change email",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"oldEmail\":\"abdofwzy9@gmail.com\",\r\n    \"newEmail\":\"abdoamircan@gmail.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{start}}/user/changeEmail",
+							"host": [
+								"{{start}}"
+							],
+							"path": [
+								"user",
+								"changeEmail"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "profile",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{start}}/user/profile",
+							"host": [
+								"{{start}}"
+							],
+							"path": [
+								"user",
+								"profile"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete user",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{start}}/user/delete",
+							"host": [
+								"{{start}}"
+							],
+							"path": [
+								"user",
+								"delete"
+							],
+							"query": [
+								{
+									"key": "",
+									"value": "",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update profile",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"userName\":\"abddo\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{start}}/user/profile",
+							"host": [
+								"{{start}}"
+							],
+							"path": [
+								"user",
+								"profile"
+							],
+							"query": [
+								{
+									"key": "",
+									"value": "",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "auth",
+			"item": [
+				{
+					"name": "confirm email",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\":\"abdofwby9@gmail.com\",\r\n    \"password\":\"5asd4fadf\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{start}}/auth/confirmEmail/eyjhbgcioijiuzi1niisinr5cci6ikpxvcj9.eyjpzci6ijy3n2e4mgy2mje1nzmwmwqxzguxodaxnyisimlhdci6mtcznja4nduxmiwizxhwijoxnzm2mdg2mzeyfq.xkgpa9ue_ty-c7zunbgg8dqush6gqgjuha8dbnesx74/",
+							"host": [
+								"{{start}}"
+							],
+							"path": [
+								"auth",
+								"confirmEmail",
+								"eyjhbgcioijiuzi1niisinr5cci6ikpxvcj9.eyjpzci6ijy3n2e4mgy2mje1nzmwmwqxzguxodaxnyisimlhdci6mtcznja4nduxmiwizxhwijoxnzm2mdg2mzeyfq.xkgpa9ue_ty-c7zunbgg8dqush6gqgjuha8dbnesx74",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "login",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\"email\":\"abdofwzy9@gmail.com\",\r\n\"password\":\"adfadfAF3\"\r\n    \r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{start}}/auth/login",
+							"host": [
+								"{{start}}"
+							],
+							"path": [
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "signup",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"userName\":\"abdullah\",\r\n    \"gender\":\"male\",\r\n    \"phone\":\"662665564645\"\r\n    ,\"address\":\"Elwraq Giza\",\r\n    \"email\":\"abdofwzy9@gmail.com\",\r\n    \"password\":\"5asd4fadf\",\r\n    \"confirmPassword\":\"5asd4fadf\",\r\n    \"DOB\":\"3-27\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{start}}/auth/signup",
+							"host": [
+								"{{start}}"
+							],
+							"path": [
+								"auth",
+								"signup"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "message",
+			"item": [
+				{
+					"name": "send message",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"message\":\"sadfasdadsfasfdfsdfa\",\r\n    \"accountId\":\"6779a2fb5ae2056de0fe6c61\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{start}}/message/message",
+							"host": [
+								"{{start}}"
+							],
+							"path": [
+								"message",
+								"message"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
