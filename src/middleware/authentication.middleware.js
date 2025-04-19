@@ -3,6 +3,7 @@ import userModel from "../DB/models/User.model.js";
 import { asyncHandler } from "../utils/error/error.js";
 export const authenticationMiddleware = asyncHandler(async (req, res, next) => {
   const { authorization } = req.headers;
+
   // check if the authorization exist or not and if it is valid or not
   if (!authorization || authorization?.split(" ").length > 2) {
     // return res.status(400).json({ message: "authorization is required" });

@@ -7,6 +7,9 @@ export const passwordValidation = Joi.object({
     .pattern(new RegExp("^[a-zA-Z0-9]{5,30}$"))
     .required(),
   confirmPassword: Joi.string().valid(Joi.ref("password")).required(),
+  authorization: Joi.string().required().messages({
+    "any.required": "Authorization header is required",
+  }),
 });
 
 export const updateProfileValidation = Joi.object({
@@ -16,10 +19,13 @@ export const updateProfileValidation = Joi.object({
   authorization: Joi.string().required().messages({
     "any.required": "Authorization header is required",
   }),
-  DOB: Joi.date().max("now").iso(),
+  DOB: Joi.date().less("now"),
 });
 
 export const emailValidation = Joi.object({
+  authorization: Joi.string().required().messages({
+    "any.required": "Authorization header is required",
+  }),
   oldEmail: Joi.string()
     .email({
       minDomainSegments: 2,

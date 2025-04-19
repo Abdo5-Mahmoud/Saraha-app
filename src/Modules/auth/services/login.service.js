@@ -12,12 +12,14 @@ export const login = asyncHandler(async (req, res, next) => {
   /// Check if the email exist or not
   const user = await userModel.findOne({ email });
   if (!user) {
-    return next(new Error("Invalid email or password", { cause: 404 }));
+    return next(new Error("Invalid email or password", { cause: 400 }));
   }
+
   // check if the email is confirmed or not
   if (!user.confirmEmail) {
     return next(new Error("Please confirm your email", { cause: 400 }));
   }
+
   //compare the hashing password with the plain text
   if (
     !compareHash({

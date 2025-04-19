@@ -9,6 +9,9 @@ const bootstrap = (express, app) => {
   // middlewares
   app.use(express.json()); // for parsing application/json || buffer data into json
 
+  app.get("/", (req, res, next) => {
+    return res.status(200).json({ message: "Welcome to Saraha APP" });
+  });
   app.use("/auth", authRouter);
   app.use("/user", userRouter);
   app.use("/message", messageRouter);

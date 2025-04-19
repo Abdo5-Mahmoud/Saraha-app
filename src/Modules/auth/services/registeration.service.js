@@ -10,16 +10,7 @@ import {
 } from "../../../utils/security/token.securtiy.js";
 
 export const signup = asyncHandler(async (req, res, next) => {
-  const {
-    userName,
-    email,
-    DOB,
-    gender,
-    phone,
-    address,
-    password,
-    confirmPassword,
-  } = req.body;
+  const { email, phone, password } = req.body;
 
   /// Check if the email exist or not
   if (await userModel.findOne({ email })) {
@@ -38,7 +29,7 @@ export const signup = asyncHandler(async (req, res, next) => {
   });
 
   // generate email token and assign the user id to it
-  const emailToken = await generateToken({
+  const emailToken = generateToken({
     payload: { id: newUser._id },
     signature: process.env.Tokin_Email,
     options: {
@@ -73,6 +64,7 @@ export const signup = asyncHandler(async (req, res, next) => {
     html,
     subject: "Confirm your email",
   });
+  return;
 });
 
 export const confirmEmail = asyncHandler(async (req, res, next) => {
