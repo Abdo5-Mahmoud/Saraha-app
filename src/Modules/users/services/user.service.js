@@ -13,6 +13,7 @@ import {
   generateHash,
 } from "../../../utils/security/hash.security.js";
 import { generateToken } from "../../../utils/security/token.securtiy.js";
+import { emailEvent } from "../../../utils/events/email.events.js";
 
 export const profile = asyncHandler(async (req, res) => {
   const user = req.user;
@@ -27,7 +28,10 @@ export const profile = asyncHandler(async (req, res) => {
   return successResponse({
     message: "Hello from user profile",
     res,
-    data: { user: user, messages },
+    data: {
+      user: { _id, userName, email, gender, phone, address, role, DOB },
+      messages,
+    },
   });
 });
 
@@ -52,10 +56,12 @@ export const updateProfile = asyncHandler(async (req, res, next) => {
     );
   const decryptedPhone = generateDecryption({ cipherText: user.phone });
   user.phone = decryptedPhone;
+  const { _id, email, gender, role } = user;
+
   return successResponse({
     message: "Done",
     res,
-    data: user,
+    data: { _id, userName, email, gender, phone, address, role, DOB },
   });
 });
 
@@ -120,25 +126,28 @@ export const changeEmail = asyncHandler(async (req, res, next) => {
     data: { _id, userName, email, gender, address },
   });
 
-  const confirmEmailToken = `${process.env.FrontEndLink}/auth/confirmEmail/${emailToken}`;
-
-  const html = `<table style="width: 500px; margin:auto; border:solid #eee 1px;  padding:10px; border-radius:20px  20px 0  0"></th>
-  <th style="text-align:center; background-color: #007bff;color:white; padding:10px; border-radius:20px  20px 0  0">Sraha Project</th>
-  <tbody>
-      <tr >
-          <td style="padding: 10px;">Hello, here is Sraha app please confirm your email by clicking on the link</td>
-      </tr>
-      <tr>
-          <td style="text-align: center; "><a style="text-decoration: none; background-color:#007bff; color:white; padding :10px;border-radius:5px;" href="${confirmEmailToken}">Click</a></td>
-      </tr>
-  </tbody>
-</table>
-`;
-
-  sendEmail({
-    to: user.email,
-    html,
-    subject: "Confirm your email",
+  emailEvent.emit("sendConfirmEmail", {
+    email: newEmail,
   });
+  //   const confirmEmailToken = `${process.env.FrontEndLink}/auth/confirmEmail/${emailToken}`;
+
+  //   const html = `<table style="width: 500px; margin:auto; border:solid #eee 1px;  padding:10px; border-radius:20px  20px 0  0"></th>
+  //   <th style="text-align:center; background-color: #007bff;color:white; padding:10px; border-radius:20px  20px 0  0">Sraha Project</th>
+  //   <tbody>
+  //       <tr >
+  //           <td style="padding: 10px;">Hello, here is Sraha app please confirm your email by clicking on the link</td>
+  //       </tr>
+  //       <tr>
+  //           <td style="text-align: center; "><a style="text-decoration: none; background-color:#007bff; color:white; padding :10px;border-radius:5px;" href="${confirmEmailToken}">Click</a></td>
+  //       </tr>
+  //   </tbody>
+  // </table>
+  // `;
+
+  //   sendEmail({
+  //     to: user.email,
+  //     html,
+  //     subject: "Confirm your email",
+  //   });
   return;
 });

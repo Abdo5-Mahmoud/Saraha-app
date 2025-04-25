@@ -24,7 +24,7 @@ export const login = asyncHandler(async (req, res, next) => {
   if (
     !compareHash({
       plainText: password,
-      hashText: user.password,
+      hashValue: user.password,
     })
   ) {
     return next(new Error("Invalid email or password", { cause: 400 }));

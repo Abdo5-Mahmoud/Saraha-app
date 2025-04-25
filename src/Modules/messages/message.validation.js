@@ -8,5 +8,5 @@ export const message = Joi.object({
       "string.pattern.base": "Invalid accountId format",
       "any.required": "accountId is required",
     }),
-  message: Joi.string().alphanum().min(3).max(5000).required(),
+  message: Joi.string().min(3).max(5000).required(),
 });

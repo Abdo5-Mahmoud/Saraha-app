@@ -24,6 +24,7 @@
     "joi": "^17.13.3",
     "jsonwebtoken": "^9.0.2",
     "mongoose": "^8.9.3",
+    "nanoid": "^5.1.5",
     "nodemailer": "^6.9.16",
     "pm2": "^5.4.3"
   }

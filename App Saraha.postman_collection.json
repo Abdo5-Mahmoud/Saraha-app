@@ -2,6 +2,7 @@
 	"info": {
 		"_postman_id": "051f034e-d392-4a7c-8d05-37eff1f8aee6",
 		"name": "App Saraha",
+		"description": "This app is a small example for saraha app that the users or un-users can send anonymous messages to the users and the users receive them.",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "33817260"
 	},
@@ -28,7 +29,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"userName\": \"abdo55555\",\r\n    \"gender\": \"male\",\r\n    \"phone\": \"662665564645\",\r\n    \"address\": \"cairo\",\r\n    \"email\": \"abd55o@gmail.com\",\r\n    \"password\": \"5asd4fadf\",\r\n    \"confirmPassword\": \"5asd4fadf\",\r\n    \"DOB\": \"3-27\"\r\n}",
+							"raw": "{\r\n    \"userName\": \"abdo55555\",\r\n    \"gender\": \"male\",\r\n    \"phone\": \"662665564645\",\r\n    \"address\": \"cairo\",\r\n    \"email\": \"abdoamircan@gmail.com\",\r\n    \"password\": \"5asd4fadf\",\r\n    \"confirmPassword\": \"5asd4fadf\",\r\n    \"DOB\": \"3-27\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -45,7 +46,7 @@
 								"signup"
 							]
 						},
-						"description": "This endpoint allows users to sign up for a new account.\n\n#### Request Body\n\n- `userName` (text, required): The username of the user.\n    \n- `gender` (text, required): The gender of the user.\n    \n- `phone` (text, required): The phone number of the user.\n    \n- `address` (text, required): The address of the user.\n    \n- `email` (text, required): The email address of the user.\n    \n- `password` (text, required): The password for the account.\n    \n- `confirmPassword` (text, required): The confirmation of the password.\n    \n- `DOB` (text, required): The date of birth of the user.\n    \n\nExample:\n\n``` json\n{\n    \"userName\": \"abdullah\",\n    \"gender\": \"male\",\n    \"phone\": \"662665564645\",\n    \"address\": \"cairo\",\n    \"email\": \"abdo@gmail.com\",\n    \"password\": \"5asd4fadf\",\n    \"confirmPassword\": \"5asd4fadf\",\n    \"DOB\": \"3-27\"\n}\n\n ```\n\n#### Response\n\n- Status: 200\n    \n- Content-Type: application/json\n    \n\n``` json\n{\n    \"message\": \"Done\",\n    \"data\": {\n        \"note\": \"Please confirm your email\"\n    }\n}\n\n ```\n\n### If the Email already exist\n\n- Status: 409\n    \n- Content-Type: application/json\n    \n- The response will include a JSON object with a \"message\" field\n    \n\n``` json\n{\n \"message\": \"Email already exist\",\n}\n\n ```\n\n### Request Body\n\n- No specific request body parameters were provided.\n    \n\n### Response\n\n- Status: 400\n    \n- Content-Type: application/json\n    \n- The response will include a JSON object with a \"message\" field and a \"validationError\" array. The \"validationError\" array contains objects with \"message\", \"path\", \"type\", and \"context\" fields.\n    \n\n#### Example\n\n``` json\n{\n    \"message\": \"validation result\",\n    \"validationError\": [\n        {\n            \"message\": \"\\\"userName\\\" is required\",\n            \"path\": [\n                \"userName\"\n            ],\n            \"type\": \"any.required\",\n            \"context\": {\n                \"label\": \"userName\",\n                \"key\": \"userName\"\n            }\n        },\n        {\n            \"message\": \"\\\"email\\\" is required\",\n            \"path\": [\n                \"email\"\n            ],\n            \"type\": \"any.required\",\n            \"context\": {\n                \"label\": \"email\",\n                \"key\": \"email\"\n            }\n        },\n        {\n            \"message\": \"\\\"password\\\" is required\",\n            \"path\": [\n                \"password\"\n            ],\n            \"type\": \"any.required\",\n            \"context\": {\n                \"label\": \"password\",\n                \"key\": \"password\"\n            }\n        },\n        {\n            \"message\": \"\\\"confirmPassword\\\" is required\",\n            \"path\": [\n                \"confirmPassword\"\n            ],\n            \"type\": \"any.required\",\n            \"context\": {\n                \"label\": \"confirmPassword\",\n                \"key\": \"confirmPassword\"\n            }\n        },\n        {\n            \"message\": \"\\\"phone\\\" is required\",\n            \"path\": [\n                \"phone\"\n            ],\n            \"type\": \"any.required\",\n            \"context\": {\n                \"label\": \"phone\",\n                \"key\": \"phone\"\n            }\n        }\n    ]\n}\n\n ```"
+						"description": "This endpoint allows users to sign up for a new account.\n\n#### Request Body\n\n- `userName` (text, required): The username of the user.\n    \n- `gender` (text): The gender of the user.\n    \n- `phone` (text, required): The phone number of the user.\n    \n- `address` (text): The address of the user.\n    \n- `email` (text, required): The email address of the user.\n    \n- `password` (text, required): The password for the account.\n    \n- `confirmPassword` (text, required): The confirmation of the password.\n    \n- `DOB` (text): The date of birth of the user.\n    \n\nExample:\n\n``` json\n{\n    \"userName\": \"abdullah\",\n    \"gender\": \"male\",\n    \"phone\": \"662665564645\",\n    \"address\": \"cairo\",\n    \"email\": \"abdo@gmail.com\",\n    \"password\": \"5asd4fadf\",\n    \"confirmPassword\": \"5asd4fadf\",\n    \"DOB\": \"3-27\"\n}\n\n ```\n\n#### Response\n\n- Status: 200\n    \n- Content-Type: application/json\n    \n\n``` json\n{\n    \"message\": \"Done\",\n    \"data\": {\n        \"note\": \"Please confirm your email\"\n    }\n}\n\n ```\n\n### If the Email already exist\n\n- Status: 409\n    \n- Content-Type: application/json\n    \n- The response will include a JSON object with a \"message\" field\n    \n\n``` json\n{\n \"message\": \"Email already exist\",\n}\n\n ```\n\n### If the required wasn't sent\n\n- No specific request body parameters were provided.\n    \n\n### Response\n\n- Status: 400\n    \n- Content-Type: application/json\n    \n- The response will include a JSON object with a \"message\" field and a \"validationError\" array. The \"validationError\" array contains objects with \"message\", \"path\", \"type\", and \"context\" fields.\n    \n\n#### Example\n\n``` json\n{\n    \"message\": \"validation result\",\n    \"validationError\": [\n        {\n            \"message\": \"\\\"userName\\\" is required\",\n            \"path\": [\n                \"userName\"\n            ],\n            \"type\": \"any.required\",\n            \"context\": {\n                \"label\": \"userName\",\n                \"key\": \"userName\"\n            }\n        },\n        {\n            \"message\": \"\\\"email\\\" is required\",\n            \"path\": [\n                \"email\"\n            ],\n            \"type\": \"any.required\",\n            \"context\": {\n                \"label\": \"email\",\n                \"key\": \"email\"\n            }\n        },\n        {\n            \"message\": \"\\\"password\\\" is required\",\n            \"path\": [\n                \"password\"\n            ],\n            \"type\": \"any.required\",\n            \"context\": {\n                \"label\": \"password\",\n                \"key\": \"password\"\n            }\n        },\n        {\n            \"message\": \"\\\"confirmPassword\\\" is required\",\n            \"path\": [\n                \"confirmPassword\"\n            ],\n            \"type\": \"any.required\",\n            \"context\": {\n                \"label\": \"confirmPassword\",\n                \"key\": \"confirmPassword\"\n            }\n        },\n        {\n            \"message\": \"\\\"phone\\\" is required\",\n            \"path\": [\n                \"phone\"\n            ],\n            \"type\": \"any.required\",\n            \"context\": {\n                \"label\": \"phone\",\n                \"key\": \"phone\"\n            }\n        }\n    ]\n}\n\n ```"
 					},
 					"response": [
 						{
@@ -194,7 +195,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"email\": \"abdo@gmail.com\",\r\n    \"password\": \"5asd4fadf\"\r\n}",
+							"raw": "{\r\n    \"email\": \"abdoamircan@gmail.com\",\r\n    \"password\": \"5asd4fadf\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -362,15 +363,12 @@
 				},
 				{
 					"name": "confirm email",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
 					"request": {
-						"method": "GET",
+						"method": "PATCH",
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"email\":\"abdofwby9@gmail.com\",\r\n    \"password\":\"5asd4fadf\"\r\n}",
+							"raw": "{\r\n    \"email\":\"abdoamircan@gmail.com\",\r\n    \"otp\":\"759902\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -378,22 +376,152 @@
 							}
 						},
 						"url": {
-							"raw": "{{start}}/auth/confirmEmail/eyjhbgcioijiuzi1niisinr5cci6ikpxvcj9.eyjpzci6ijy3n2e4mgy2mje1nzmwmwqxzguxodaxnyisimlhdci6mtcznja4nduxmiwizxhwijoxnzm2mdg2mzeyfq.xkgpa9ue_ty-c7zunbgg8dqush6gqgjuha8dbnesx74/",
+							"raw": "{{start}}/auth/confirmEmail",
 							"host": [
 								"{{start}}"
 							],
 							"path": [
 								"auth",
-								"confirmEmail",
-								"eyjhbgcioijiuzi1niisinr5cci6ikpxvcj9.eyjpzci6ijy3n2e4mgy2mje1nzmwmwqxzguxodaxnyisimlhdci6mtcznja4nduxmiwizxhwijoxnzm2mdg2mzeyfq.xkgpa9ue_ty-c7zunbgg8dqush6gqgjuha8dbnesx74",
-								""
+								"confirmEmail"
 							]
-						}
+						},
+						"description": "### PATCH /auth/confirmEmail\n\nThis endpoint is used to confirm the user's email by providing the email and the one-time password (OTP).\n\n#### Request Body\n\n- `email` (string, required): The email address of the user.\n    \n- `otp` (string, required): The one-time password received by the user.\n    \n\n#### Response\n\nThe response is in JSON format and has the following schema:\n\n``` json\n{\n  \"type\": \"object\",\n  \"properties\": {\n    \"message\": {\n      \"type\": \"string\"\n    },\n    \"data\": {\n      \"type\": \"object\",\n      \"properties\": {\n        \"_id\": {\n          \"type\": \"string\"\n        },\n        \"userName\": {\n          \"type\": \"string\"\n        },\n        \"email\": {\n          \"type\": \"string\"\n        },\n        \"gender\": {\n          \"type\": \"string\"\n        },\n        \"address\": {\n          \"type\": \"string\"\n        }\n      }\n    }\n  }\n}\n\n ```\n\nThe response includes a `message` field and a `data` object with user details such as `_id`, `userName`, `email`, `gender`, and `address`."
 					},
-					"response": []
+					"response": [
+						{
+							"name": "email already confirmed",
+							"originalRequest": {
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"email\":\"abdoamircan@gmail.com\",\r\n    \"otp\":\"386606\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{start}}/auth/confirmEmail",
+									"host": [
+										"{{start}}"
+									],
+									"path": [
+										"auth",
+										"confirmEmail"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "259"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"103-sYo3SffWCjY1k/qedF2jzFXJqng\""
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 23 Apr 2025 16:17:02 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Email already confirmed\",\n    \"stack\": \"Error: Email already confirmed\\n    at file:///D:/Route/apps/sraha-app/src/Modules/auth/services/registeration.service.js:89:17\\n    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)\"\n}"
+						},
+						{
+							"name": "wrong email",
+							"originalRequest": {
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"email\":\"abdoamircadn@gmail.com\",\r\n    \"otp\":\"93618d7\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{start}}/auth/confirmEmail",
+									"host": [
+										"{{start}}"
+									],
+									"path": [
+										"auth",
+										"confirmEmail"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "241"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"f1-21GoJFy7CDnPRyU8qQH5onAtRCw\""
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 23 Apr 2025 16:20:57 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"User not found\",\n    \"stack\": \"Error: User not found\\n    at file:///D:/Route/apps/sraha-app/src/Modules/auth/services/registeration.service.js:76:17\\n    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)\"\n}"
+						}
+					]
 				}
 			],
-			"description": "This folder contain all the apis that related to signup, login and authentecation things"
+			"description": "This section contain all the apis that related to signup, login, authentecation and authorization."
 		},
 		{
 			"name": "user",
@@ -1132,77 +1260,6 @@
 					},
 					"response": [
 						{
-							"name": "change email error",
-							"originalRequest": {
-								"method": "PATCH",
-								"header": [
-									{
-										"key": "authorization",
-										"value": "{{token}}",
-										"type": "text"
-									}
-								],
-								"body": {
-									"mode": "raw",
-									"raw": "{\r\n    \"oldEmail\":\"abdofwzy9@gmail.com\",\r\n    \"newEmail\":\"abdoamircan@gmail.com\"\r\n}",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
-								},
-								"url": {
-									"raw": "{{start}}/user/changeEmail",
-									"host": [
-										"{{start}}"
-									],
-									"path": [
-										"user",
-										"changeEmail"
-									]
-								}
-							},
-							"status": "Internal Server Error",
-							"code": 500,
-							"_postman_previewlanguage": "json",
-							"header": [
-								{
-									"key": "X-Powered-By",
-									"value": "Express"
-								},
-								{
-									"key": "Access-Control-Allow-Origin",
-									"value": "*"
-								},
-								{
-									"key": "Content-Type",
-									"value": "application/json; charset=utf-8"
-								},
-								{
-									"key": "Content-Length",
-									"value": "625"
-								},
-								{
-									"key": "ETag",
-									"value": "W/\"271-jgZBM/cjyBg7Y6UL2j/fWI7flkQ\""
-								},
-								{
-									"key": "Date",
-									"value": "Sat, 19 Apr 2025 12:36:15 GMT"
-								},
-								{
-									"key": "Connection",
-									"value": "keep-alive"
-								},
-								{
-									"key": "Keep-Alive",
-									"value": "timeout=5"
-								}
-							],
-							"cookie": [],
-							"body": "{\n    \"message\": \"Old email is incorrect\",\n    \"stack\": \"Error: Old email is incorrect\\n    at file:///D:/Route/apps/sraha-app/src/Modules/users/services/user.service.js:104:17\\n    at file:///D:/Route/apps/sraha-app/src/utils/error/error.js:3:5\\n    at Layer.handle [as handle_request] (D:\\\\Route\\\\apps\\\\sraha-app\\\\node_modules\\\\express\\\\lib\\\\router\\\\layer.js:95:5)\\n    at next (D:\\\\Route\\\\apps\\\\sraha-app\\\\node_modules\\\\express\\\\lib\\\\router\\\\route.js:149:13)\\n    at file:///D:/Route/apps/sraha-app/src/middleware/authentication.middleware.js:44:10\\n    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)\"\n}"
-						},
-						{
 							"name": "change email success response",
 							"originalRequest": {
 								"method": "PATCH",
@@ -1272,6 +1329,77 @@
 							],
 							"cookie": [],
 							"body": "{\n    \"message\": \"email updated\",\n    \"data\": {\n        \"_id\": \"68017067e145f5e46f034e57\",\n        \"userName\": \"abddo\",\n        \"email\": \"abdoamircan@gmail.com\",\n        \"gender\": \"male\",\n        \"address\": \"adsf\"\n    }\n}"
+						},
+						{
+							"name": "change email error",
+							"originalRequest": {
+								"method": "PATCH",
+								"header": [
+									{
+										"key": "authorization",
+										"value": "{{token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"oldEmail\":\"abdofwzy9@gmail.com\",\r\n    \"newEmail\":\"abdoamircan@gmail.com\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{start}}/user/changeEmail",
+									"host": [
+										"{{start}}"
+									],
+									"path": [
+										"user",
+										"changeEmail"
+									]
+								}
+							},
+							"status": "Internal Server Error",
+							"code": 500,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "625"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"271-jgZBM/cjyBg7Y6UL2j/fWI7flkQ\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 19 Apr 2025 12:36:15 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Old email is incorrect\",\n    \"stack\": \"Error: Old email is incorrect\\n    at file:///D:/Route/apps/sraha-app/src/Modules/users/services/user.service.js:104:17\\n    at file:///D:/Route/apps/sraha-app/src/utils/error/error.js:3:5\\n    at Layer.handle [as handle_request] (D:\\\\Route\\\\apps\\\\sraha-app\\\\node_modules\\\\express\\\\lib\\\\router\\\\layer.js:95:5)\\n    at next (D:\\\\Route\\\\apps\\\\sraha-app\\\\node_modules\\\\express\\\\lib\\\\router\\\\route.js:149:13)\\n    at file:///D:/Route/apps/sraha-app/src/middleware/authentication.middleware.js:44:10\\n    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)\"\n}"
 						}
 					]
 				}
@@ -1285,10 +1413,17 @@
 					"name": "send message",
 					"request": {
 						"method": "POST",
-						"header": [],
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text",
+								"disabled": true
+							}
+						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"message\":\"sadfasdadsfasfdfdfa\",\r\n    \"accountId\":\"8017067e145f5e46f034e57\"\r\n}",
+							"raw": "{\r\n    \"message\":\"any message\",\r\n    \"accountId\":\"680b7e0e25a24907bbb22993\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"

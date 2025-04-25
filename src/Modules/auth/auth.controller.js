@@ -7,5 +7,5 @@ const authRouter = Router();
 
 authRouter.post("/signup", validation(validators.signup), regestration.signup);
 authRouter.post("/login", validation(validators.login), loginServices.login);
-authRouter.get("/confirmEmail/:emailToken", regestration.confirmEmail);
+authRouter.patch("/confirmEmail", regestration.confirmEmail);
 export default authRouter;

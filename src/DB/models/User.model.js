@@ -39,6 +39,10 @@ const userSchema = new Schema(
       default: false,
       required: true,
     },
+    confirmEmailOtp: {
+      type: String,
+      default: null,
+    },
     DOB: {
       type: Date,
       required: true,
