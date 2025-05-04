@@ -4,7 +4,9 @@
   "main": "index.js",
   "scripts": {
     "dev": "node --watch index.js",
-    "start": "node index.js"
+    "start": "node index.js",
+    "build": "npm install --omit=dev"  
+  
   },
   "type": "module",
   "engines": {
